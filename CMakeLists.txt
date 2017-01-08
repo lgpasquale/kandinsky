@@ -58,7 +58,7 @@ set(LIBRARIES
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -O2")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -O2 -std=c++14")
 
     # Set specific flags for the three different build types (Release, debug and Profile)
     set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG")

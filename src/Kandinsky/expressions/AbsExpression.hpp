@@ -2,28 +2,35 @@
 #define KANDINSKY_ABSEXPRESSION_HPP_
 
 #include <Kandinsky/expressions/UnaryExpression.hpp>
+#include <Kandinsky/expressions/SignExpression.hpp>
 
 #include <cmath>
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class AbsExpression : public UnaryExpression<ExpressionType>
+    class AbsExpression : public UnaryExpression
     {
     public:
-        AbsExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        AbsExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::abs(this->m_expression.evaluate());
+            return std::abs(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "abs(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    AbsExpression<ExpressionType> abs(ExpressionType expression)
+    template <class ArgT>
+    AbsExpression abs(ArgT arg)
     {
-        return AbsExpression<ExpressionType>(expression);
+        return AbsExpression(BaseExpression::makePtr(arg));
     }
 }
 

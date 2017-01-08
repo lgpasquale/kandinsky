@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class ArcSineExpression : public UnaryExpression<ExpressionType>
+    class ArcSineExpression : public UnaryExpression
     {
     public:
-        ArcSineExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        ArcSineExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::asin(this->m_expression.evaluate());
+            return std::asin(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "asin(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    ArcSineExpression<ExpressionType>
-    asin(ExpressionType expression)
+    template <class ArgT>
+    ArcSineExpression
+    asin(ArgT arg)
     {
-        return ArcSineExpression<ExpressionType>(expression);
+        return ArcSineExpression(BaseExpression::makePtr(arg));
     }
 }
 

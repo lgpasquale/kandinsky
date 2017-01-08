@@ -11,10 +11,10 @@ add_project_test_executable(subtraction_evaluation_test SubtractionEvaluationTes
     TEST_NAME SubtractionEvaluationTest)
 
 add_project_test_executable(multiplication_evaluation_test MultiplicationEvaluationTest.cpp
-    TEST_NAME MultiplicationeAdditionEvaluationTest)
+    TEST_NAME MultiplicationEvaluationTest)
 
 add_project_test_executable(division_evaluation_test DivisionEvaluationTest.cpp
-    TEST_NAME DivisionAdditionEvaluationTest)
+    TEST_NAME DivisionEvaluationTest)
 
 add_project_test_executable(abs_evaluation_test AbsEvaluationTest.cpp
     TEST_NAME AbsEvaluationTest)

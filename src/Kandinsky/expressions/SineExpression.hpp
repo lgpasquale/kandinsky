@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class SineExpression : public UnaryExpression<ExpressionType>
+    class SineExpression : public UnaryExpression
     {
     public:
-        SineExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        SineExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::sin(this->m_expression.evaluate());
+            return std::sin(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "sin(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    SineExpression<ExpressionType>
-    sin(ExpressionType expression)
+    template <class ArgT>
+    SineExpression
+    sin(ArgT arg)
     {
-        return SineExpression<ExpressionType>(expression);
+        return SineExpression(BaseExpression::makePtr(arg));
     }
 }
 

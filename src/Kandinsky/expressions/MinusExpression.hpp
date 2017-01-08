@@ -5,23 +5,29 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class MinusExpression : public UnaryExpression<ExpressionType>
+    class MinusExpression : public UnaryExpression
     {
     public:
-        MinusExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        MinusExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return -this->m_expression.evaluate();
+            return -m_arg->evaluate();
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "- " + m_arg->print();
         }
     };
 
-    template <class ExpressionType>
-    MinusExpression<ExpressionType> operator-(ExpressionType expression)
+    template <class ArgT>
+    MinusExpression operator-(ArgT arg)
     {
-        return MinusExpression<ExpressionType>(expression);
+        return MinusExpression(BaseExpression::makePtr(arg));
     }
 }
 

@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class ArcCosineExpression : public UnaryExpression<ExpressionType>
+    class ArcCosineExpression : public UnaryExpression
     {
     public:
-        ArcCosineExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        ArcCosineExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::acos(this->m_expression.evaluate());
+            return std::acos(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "acos(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    ArcCosineExpression<ExpressionType>
-    acos(ExpressionType expression)
+    template <class ArgT>
+    ArcCosineExpression
+    acos(ArgT arg)
     {
-        return ArcCosineExpression<ExpressionType>(expression);
+        return ArcCosineExpression(BaseExpression::makePtr(arg));
     }
 }
 

@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class SquareRootExpression : public UnaryExpression<ExpressionType>
+    class SquareRootExpression : public UnaryExpression
     {
     public:
-        SquareRootExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        SquareRootExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::sqrt(this->m_expression.evaluate());
+            return std::sqrt(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "sqrt(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    SquareRootExpression<ExpressionType>
-    sqrt(ExpressionType expression)
+    template <class ArgT>
+    SquareRootExpression
+    sqrt(ArgT arg)
     {
-        return SquareRootExpression<ExpressionType>(expression);
+        return SquareRootExpression(BaseExpression::makePtr(arg));
     }
 }
 

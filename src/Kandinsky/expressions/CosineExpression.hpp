@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class CosineExpression : public UnaryExpression<ExpressionType>
+    class CosineExpression : public UnaryExpression
     {
     public:
-        CosineExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        CosineExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::cos(this->m_expression.evaluate());
+            return std::cos(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "cos(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    CosineExpression<ExpressionType>
-    cos(ExpressionType expression)
+    template <class ArgT>
+    CosineExpression
+    cos(ArgT arg)
     {
-        return CosineExpression<ExpressionType>(expression);
+        return CosineExpression(BaseExpression::makePtr(arg));
     }
 }
 

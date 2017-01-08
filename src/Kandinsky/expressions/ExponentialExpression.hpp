@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class ExponentialExpression : public UnaryExpression<ExpressionType>
+    class ExponentialExpression : public UnaryExpression
     {
     public:
-        ExponentialExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        ExponentialExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::exp(this->m_expression.evaluate());
+            return std::exp(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "exp(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    ExponentialExpression<ExpressionType>
-    exp(ExpressionType expression)
+    template <class ArgT>
+    ExponentialExpression
+    exp(ArgT arg)
     {
-        return ExponentialExpression<ExpressionType>(expression);
+        return ExponentialExpression(BaseExpression::makePtr(arg));
     }
 }
 

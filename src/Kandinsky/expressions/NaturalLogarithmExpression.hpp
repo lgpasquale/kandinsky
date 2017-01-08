@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class NaturalLogarithmExpression : public UnaryExpression<ExpressionType>
+    class NaturalLogarithmExpression : public UnaryExpression
     {
     public:
-        NaturalLogarithmExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        NaturalLogarithmExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::log(this->m_expression.evaluate());
+            return std::log(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "log(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    NaturalLogarithmExpression<ExpressionType>
-    log(ExpressionType expression)
+    template <class ArgT>
+    NaturalLogarithmExpression
+    log(ArgT arg)
     {
-        return NaturalLogarithmExpression<ExpressionType>(expression);
+        return NaturalLogarithmExpression(BaseExpression::makePtr(arg));
     }
 }
 

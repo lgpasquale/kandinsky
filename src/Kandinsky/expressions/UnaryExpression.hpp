@@ -1,20 +1,19 @@
 #ifndef KANDINSKY_UNARYEXPRESSION_HPP_
 #define KANDINSKY_UNARYEXPRESSION_HPP_
 
-#include <Kandinsky/expressions/Expression.hpp>
+#include <Kandinsky/expressions/BaseExpression.hpp>
 #include <Kandinsky/expressions/ExpressionTraits.hpp>
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class UnaryExpression : public Expression
+    class UnaryExpression : public BaseExpression
     {
     public:
-        UnaryExpression(ExpressionType expression)
-            : m_expression(expression) {}
+        UnaryExpression(BaseExpressionPtr arg)
+            : m_arg(arg) {}
 
     protected:
-        typename ExpressionTraits<ExpressionType>::ExpressionType m_expression;
+        BaseExpressionPtr m_arg;
     };
 }
 

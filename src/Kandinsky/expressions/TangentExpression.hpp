@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType>
-    class TangentExpression : public UnaryExpression<ExpressionType>
+    class TangentExpression : public UnaryExpression
     {
     public:
-        TangentExpression(ExpressionType expression)
-            : UnaryExpression<ExpressionType>(expression) {}
+        TangentExpression(BaseExpressionPtr arg)
+            : UnaryExpression(arg) {}
 
         double evaluate() const
         {
-            return std::tan(this->m_expression.evaluate());
+            return std::tan(m_arg->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "tan(" + m_arg->print() + ")";
         }
     };
 
-    template <class ExpressionType>
-    TangentExpression<ExpressionType>
-    tan(ExpressionType expression)
+    template <class ArgT>
+    TangentExpression
+    tan(ArgT arg)
     {
-        return TangentExpression<ExpressionType>(expression);
+        return TangentExpression(BaseExpression::makePtr(arg));
     }
 }
 

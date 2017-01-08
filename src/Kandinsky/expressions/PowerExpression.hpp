@@ -7,24 +7,30 @@
 
 namespace Kandinsky
 {
-    template <class ExpressionType1, class ExpressionType2>
-    class PowerExpression : public BinaryExpression<ExpressionType1, ExpressionType2>
+    class PowerExpression : public BinaryExpression
     {
     public:
-        PowerExpression(ExpressionType1 expression1, ExpressionType2 expression2)
-            : BinaryExpression<ExpressionType1, ExpressionType2>(expression1, expression2) {}
+        PowerExpression(BaseExpressionPtr arg1, BaseExpressionPtr arg2)
+            : BinaryExpression(arg1, arg2) {}
 
         double evaluate() const
         {
-            return std::pow(this->m_expression1.evaluate(), this->m_expression2.evaluate());
+            return std::pow(m_arg1->evaluate(), m_arg2->evaluate());
+        }
+
+        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+
+        virtual std::string print() const
+        {
+            return "pow(" + m_arg1->print() + ", " + m_arg2->print() + ")";
         }
     };
 
-    template <class ExpressionType1,class ExpressionType2>
-    PowerExpression<ExpressionType1, ExpressionType2 >
-    pow(ExpressionType1 expression1, ExpressionType2 expression2)
+    template <class Arg1T,class Arg2T>
+    PowerExpression
+    pow(Arg1T arg1, Arg2T arg2)
     {
-        return PowerExpression<ExpressionType1, ExpressionType2>(expression1, expression2);
+        return PowerExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
     }
 }
 
