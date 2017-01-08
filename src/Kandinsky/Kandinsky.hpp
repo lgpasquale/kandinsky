@@ -35,6 +35,7 @@
 #include <Kandinsky/expressions/BaseExpression.tpp>
 #include <Kandinsky/expressions/Constant.tpp>
 #include <Kandinsky/expressions/VariableExpression.tpp>
+#include <Kandinsky/expressions/Expression.tpp>
 
 #include <Kandinsky/expressions/AdditionExpression.tpp>
 #include <Kandinsky/expressions/SubtractionExpression.tpp>

@@ -2,6 +2,7 @@
 #define KANDINSKY_BASEEXPRESSION_HPP_
 
 #include <memory>
+#include <set>
 #include <string>
 
 namespace Kandinsky
@@ -14,13 +15,21 @@ namespace Kandinsky
     {
     public:
         virtual double evaluate() const = 0;
+
         virtual std::shared_ptr<BaseExpression> derivative(const std::shared_ptr<VariableExpression>& variable) const = 0;
+
         virtual Expression differentiate(const Variable& variable) const;
+
+        virtual std::set<Variable> variables(const std::shared_ptr<BaseExpression>& thisSharedPtr) const;
+
+        virtual void fillVariableSet(std::set<Variable>& variableSet, const std::shared_ptr<BaseExpression>& thisSharedPtr) const = 0;
 
         virtual std::string print() const = 0;
 
         template <class T>
         static std::shared_ptr<BaseExpression> makePtr(const T& arg);
+
+    protected:
     };
 
     typedef std::shared_ptr<BaseExpression> BaseExpressionPtr;

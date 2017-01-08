@@ -2,6 +2,9 @@
 #define KANDINSKY_EXPRESSION_HPP_
 
 #include <Kandinsky/expressions/BaseExpression.hpp>
+#include <Kandinsky/expressions/Variable.hpp>
+
+#include <map>
 
 namespace Kandinsky
 {
@@ -44,6 +47,13 @@ namespace Kandinsky
         {
             return m_baseExpressionPtr->differentiate(variable);
         }
+
+        virtual std::set<Variable> variables() const
+        {
+            return m_baseExpressionPtr->variables(m_baseExpressionPtr);
+        }
+
+        virtual std::map<Variable, Expression> derivatives() const;
 
         virtual std::string print() const
         {

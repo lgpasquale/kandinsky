@@ -16,6 +16,9 @@ namespace Kandinsky
         Variable(const std::string& name, double value = 0) :
                 m_variableExpressionPtr(new VariableExpression(name, value)) {}
 
+        Variable(VariableExpressionPtr variableExpressionPtr) :
+                m_variableExpressionPtr(variableExpressionPtr) {}
+
         void setValue(double value)
         {
             m_variableExpressionPtr->setValue(value);
@@ -34,6 +37,16 @@ namespace Kandinsky
         const std::string& getName() const
         {
             return m_variableExpressionPtr->getName();
+        }
+
+        void setIndex(unsigned int index)
+        {
+            m_variableExpressionPtr->setIndex(index);
+        }
+
+        unsigned int getIndex() const
+        {
+            return m_variableExpressionPtr->getIndex();
         }
 
         double evaluate() const
@@ -64,6 +77,11 @@ namespace Kandinsky
     protected:
         VariableExpressionPtr m_variableExpressionPtr;
     };
+
+    bool operator<(const Variable& variable1, const Variable& variable2)
+    {
+        return (variable1.getIndex() < variable2.getIndex());
+    }
 }
 
 #endif

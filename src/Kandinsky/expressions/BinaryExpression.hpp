@@ -12,6 +12,12 @@ namespace Kandinsky
         BinaryExpression(BaseExpressionPtr arg1, BaseExpressionPtr arg2)
             : m_arg1(arg1), m_arg2(arg2) {}
 
+        virtual void fillVariableSet(std::set<Variable>& variableSet, const BaseExpressionPtr& /*thisSharedPtr*/) const
+        {
+            m_arg1->fillVariableSet(variableSet, m_arg1);
+            m_arg2->fillVariableSet(variableSet, m_arg2);
+        }
+
     protected:
         BaseExpressionPtr m_arg1;
         BaseExpressionPtr m_arg2;

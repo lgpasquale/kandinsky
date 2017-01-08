@@ -18,6 +18,10 @@ namespace Kandinsky
 
         virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
 
+        virtual void fillVariableSet(std::set<Variable>& /*variableSet*/, const BaseExpressionPtr& /*thisSharedPtr*/) const
+        {
+        }
+
         virtual std::string print() const
         {
             return std::to_string(m_value);

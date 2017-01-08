@@ -1,0 +1,58 @@
+add_project_test_executable(constant_differentiation_test ConstantDifferentiationTest.cpp
+    TEST_NAME ConstantDifferentiationTest)
+
+add_project_test_executable(variable_differentiation_test VariableDifferentiationTest.cpp
+    TEST_NAME VariableDifferentiationTest)
+
+add_project_test_executable(addition_differentiation_test AdditionDifferentiationTest.cpp
+    TEST_NAME AdditionDifferentiationTest)
+
+add_project_test_executable(subtraction_differentiation_test SubtractionDifferentiationTest.cpp
+    TEST_NAME SubtractionDifferentiationTest)
+
+add_project_test_executable(multiplication_differentiation_test MultiplicationDifferentiationTest.cpp
+    TEST_NAME MultiplicationDifferentiationTest)
+
+add_project_test_executable(division_differentiation_test DivisionDifferentiationTest.cpp
+    TEST_NAME DivisionDifferentiationTest)
+
+add_project_test_executable(minus_differentiation_test MinusDifferentiationTest.cpp
+    TEST_NAME MinusDifferentiationTest)
+
+add_project_test_executable(sign_differentiation_test SignDifferentiationTest.cpp
+    TEST_NAME SignDifferentiationTest)
+
+add_project_test_executable(abs_differentiation_test AbsDifferentiationTest.cpp
+    TEST_NAME AbsDifferentiationTest)
+
+add_project_test_executable(power_differentiation_test PowerDifferentiationTest.cpp
+    TEST_NAME PowerDifferentiationTest)
+
+add_project_test_executable(square_root_differentiation_test SquareRootDifferentiationTest.cpp
+    TEST_NAME SquareRootDifferentiationTest)
+
+add_project_test_executable(natural_logarithm_differentiation_test NaturalLogarithmDifferentiationTest.cpp
+    TEST_NAME NaturalLogarithmDifferentiationTest)
+
+add_project_test_executable(exponential_differentiation_test ExponentialDifferentiationTest.cpp
+    TEST_NAME ExponentialDifferentiationTest)
+
+add_project_test_executable(sine_differentiation_test SineDifferentiationTest.cpp
+    TEST_NAME SineDifferentiationTest)
+
+add_project_test_executable(cosine_differentiation_test CosineDifferentiationTest.cpp
+    TEST_NAME CosineDifferentiationTest)
+
+add_project_test_executable(tangent_differentiation_test TangentDifferentiationTest.cpp
+    TEST_NAME TangentDifferentiationTest)
+
+add_project_test_executable(arcsine_differentiation_test ArcSineDifferentiationTest.cpp
+    TEST_NAME ArcSineDifferentiationTest)
+
+add_project_test_executable(arccosine_differentiation_test ArcCosineDifferentiationTest.cpp
+    TEST_NAME ArcCosineDifferentiationTest)
+
+add_project_test_executable(arctangent_differentiation_test ArcTangentDifferentiationTest.cpp
+    TEST_NAME ArcTangentDifferentiationTest)
+
+

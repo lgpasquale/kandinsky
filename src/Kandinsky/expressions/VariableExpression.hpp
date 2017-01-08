@@ -36,12 +36,24 @@ namespace Kandinsky
             return m_name;
         }
 
+        void setIndex(unsigned int index)
+        {
+            m_index = index;
+        }
+
+        unsigned int getIndex() const
+        {
+            return m_index;
+        }
+
         double evaluate() const
         {
             return m_value;
         }
 
         virtual std::shared_ptr<BaseExpression> derivative(const std::shared_ptr<VariableExpression>& variable) const;
+
+        virtual void fillVariableSet(std::set<Variable>& variableSet, const BaseExpressionPtr& thisSharedPtr) const;
 
         virtual std::string print() const
         {
@@ -62,6 +74,7 @@ namespace Kandinsky
 
         double m_value;
         std::string m_name;
+        unsigned int m_index;
     };
 
     typedef std::shared_ptr<VariableExpression> VariableExpressionPtr;

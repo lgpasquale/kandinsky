@@ -33,6 +33,7 @@ set(${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS}
     expressions/BaseExpression.tpp
     expressions/Constant.tpp
     expressions/VariableExpression.tpp
+    expressions/Expression.tpp
 
     expressions/AdditionExpression.tpp
     expressions/SubtractionExpression.tpp
