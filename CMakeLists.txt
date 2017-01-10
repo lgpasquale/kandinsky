@@ -18,7 +18,7 @@ if(${PROJECT_NAME}_ENABLE_TESTS)
 endif()
 
 # Project setup (basic flags, variables, cmake function...)
-set(CUPID_VERSION "a979bc3b4729a2e91186ae4fb9368f1862ee4215")
+set(CUPID_VERSION "c30818bc4ed5fb5bc0d0075b9a09f884579359bd")
 if(NOT EXISTS ${CMAKE_BINARY_DIR}/cupid/src/SetUpProject.cmake)
     message(STATUS "Downloading cupid...")
     file(DOWNLOAD https://github.com/lgpasquale/cupid/archive/${CUPID_VERSION}.zip
