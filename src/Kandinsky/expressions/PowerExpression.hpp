@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class Arg1T,class Arg2T>
     PowerExpression
-    pow(Arg1T arg1, Arg2T arg2)
+    pow(const Arg1T& arg1, const Arg2T& arg2)
     {
         return PowerExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
     }

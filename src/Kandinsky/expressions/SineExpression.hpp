@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     SineExpression
-    sin(ArgT arg)
+    sin(const ArgT& arg)
     {
         return SineExpression(BaseExpression::makePtr(arg));
     }

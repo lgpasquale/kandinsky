@@ -26,14 +26,14 @@ namespace Kandinsky
 
     template <class Arg1T,class Arg2T>
     AdditionExpression
-    operator+(Arg1T arg1, Arg2T arg2)
+    operator+(const Arg1T& arg1, const Arg2T& arg2)
     {
         return AdditionExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
     }
 
     template <class ArgT>
     ArgT
-    operator+(ArgT arg)
+    operator+(const ArgT& arg)
     {
         return arg;
     }

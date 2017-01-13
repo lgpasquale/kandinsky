@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     CosineExpression
-    cos(ArgT arg)
+    cos(const ArgT& arg)
     {
         return CosineExpression(BaseExpression::makePtr(arg));
     }

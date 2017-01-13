@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     ArcCosineExpression
-    acos(ArgT arg)
+    acos(const ArgT& arg)
     {
         return ArcCosineExpression(BaseExpression::makePtr(arg));
     }

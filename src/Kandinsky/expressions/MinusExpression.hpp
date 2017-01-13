@@ -25,7 +25,7 @@ namespace Kandinsky
     };
 
     template <class ArgT>
-    MinusExpression operator-(ArgT arg)
+    MinusExpression operator-(const ArgT& arg)
     {
         return MinusExpression(BaseExpression::makePtr(arg));
     }

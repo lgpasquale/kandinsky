@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     ExponentialExpression
-    exp(ArgT arg)
+    exp(const ArgT& arg)
     {
         return ExponentialExpression(BaseExpression::makePtr(arg));
     }

@@ -27,7 +27,7 @@ namespace Kandinsky
 
     template <class Arg1T,class Arg2T>
     DivisionExpression
-    operator/(Arg1T arg1, Arg2T arg2)
+    operator/(const Arg1T& arg1, const Arg2T& arg2)
     {
         return DivisionExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
     }

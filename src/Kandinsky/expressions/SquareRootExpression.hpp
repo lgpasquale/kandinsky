@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     SquareRootExpression
-    sqrt(ArgT arg)
+    sqrt(const ArgT& arg)
     {
         return SquareRootExpression(BaseExpression::makePtr(arg));
     }

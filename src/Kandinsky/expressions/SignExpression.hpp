@@ -27,7 +27,7 @@ namespace Kandinsky
     };
 
     template <class ArgT>
-    SignExpression sign(ArgT arg)
+    SignExpression sign(const ArgT& arg)
     {
         return SignExpression(BaseExpression::makePtr(arg));
     }

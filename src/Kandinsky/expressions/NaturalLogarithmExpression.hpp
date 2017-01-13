@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     NaturalLogarithmExpression
-    log(ArgT arg)
+    log(const ArgT& arg)
     {
         return NaturalLogarithmExpression(BaseExpression::makePtr(arg));
     }

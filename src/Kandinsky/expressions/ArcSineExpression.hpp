@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     ArcSineExpression
-    asin(ArgT arg)
+    asin(const ArgT& arg)
     {
         return ArcSineExpression(BaseExpression::makePtr(arg));
     }

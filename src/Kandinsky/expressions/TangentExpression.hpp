@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     TangentExpression
-    tan(ArgT arg)
+    tan(const ArgT& arg)
     {
         return TangentExpression(BaseExpression::makePtr(arg));
     }

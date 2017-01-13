@@ -28,7 +28,7 @@ namespace Kandinsky
 
     template <class ArgT>
     ArcTangentExpression
-    atan(ArgT arg)
+    atan(const ArgT& arg)
     {
         return ArcTangentExpression(BaseExpression::makePtr(arg));
     }

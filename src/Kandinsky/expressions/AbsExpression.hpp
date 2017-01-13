@@ -28,7 +28,7 @@ namespace Kandinsky
     };
 
     template <class ArgT>
-    AbsExpression abs(ArgT arg)
+    AbsExpression abs(const ArgT& arg)
     {
         return AbsExpression(BaseExpression::makePtr(arg));
     }
