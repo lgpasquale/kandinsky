@@ -37,6 +37,14 @@ namespace Kandinsky
     {
         return arg;
     }
+
+    template <class Arg1T, class Arg2T>
+    Arg1T&
+    operator+=(Arg1T& arg1, const Arg2T& arg2)
+    {
+        arg1 = arg1 + arg2;
+        return arg1;
+    }
 }
 
 #endif

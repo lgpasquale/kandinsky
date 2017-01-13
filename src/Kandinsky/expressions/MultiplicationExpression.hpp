@@ -31,6 +31,14 @@ namespace Kandinsky
     {
         return MultiplicationExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
     }
+
+    template <class Arg1T, class Arg2T>
+    Arg1T&
+    operator*=(Arg1T& arg1, const Arg2T& arg2)
+    {
+        arg1 = arg1 * arg2;
+        return arg1;
+    }
 }
 
 #endif

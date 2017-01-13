@@ -16,7 +16,11 @@ int main (int /*argc*/, char** /*argv*/)
     assertOrExit((x + 1 + y).evaluate() == 6, std::to_string(x.evaluate()) + " + 1 + " + std::to_string(y.evaluate()) + " != 6");
     assertOrExit((+x).evaluate() == 3, "+ " + std::to_string(x.evaluate()) + " != 6");
     assertOrExit((+x + 2).evaluate() == 5, "+ " + std::to_string(x.evaluate()) + " + 2 != 5");
-
+    Expression expression;
+    expression += x;
+    expression += y;
+    expression += 1;
+    assertOrExit(std::abs(expression.evaluate() - 6) < 1.e-4, "+ 3 + 2 + 1 != 6");
     return 0;
 }
 
