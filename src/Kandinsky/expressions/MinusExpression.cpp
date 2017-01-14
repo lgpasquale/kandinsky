@@ -1,7 +1,5 @@
-#ifndef KANDINSKY_MINUSEXPRESSION_TPP_
-#define KANDINSKY_MINUSEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/MinusExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -10,6 +8,4 @@ namespace Kandinsky
         return makePtr(- m_arg->derivative(variable));
     }
 }
-
-#endif
 

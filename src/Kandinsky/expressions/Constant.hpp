@@ -2,7 +2,6 @@
 #define KANDINSKY_CONSTANT_HPP_
 
 #include <Kandinsky/expressions/BaseExpression.hpp>
-#include <Kandinsky/expressions/VariableExpression.hpp>
 
 namespace Kandinsky
 {
@@ -16,7 +15,7 @@ namespace Kandinsky
             return m_value;
         }
 
-        virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
+        virtual BaseExpressionPtr derivative(const std::shared_ptr<VariableExpression>& variable) const;
 
         virtual void fillVariableSet(std::set<Variable>& /*variableSet*/, const BaseExpressionPtr& /*thisSharedPtr*/) const
         {

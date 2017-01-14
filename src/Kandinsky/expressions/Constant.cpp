@@ -1,7 +1,6 @@
-#ifndef KANDINSKY_CONSTANT_TPP_
-#define KANDINSKY_CONSTANT_TPP_
-
 #include <Kandinsky/expressions/Constant.hpp>
+#include <Kandinsky/expressions/VariableExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -10,6 +9,4 @@ namespace Kandinsky
         return makePtr(Constant(0));
     }
 }
-
-#endif
 

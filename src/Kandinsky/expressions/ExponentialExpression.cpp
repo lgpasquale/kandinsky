@@ -1,7 +1,6 @@
-#ifndef KANDINSKY_EXPONENTIALEXPRESSION_TPP_
-#define KANDINSKY_EXPONENTIALEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/ExponentialExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -10,6 +9,4 @@ namespace Kandinsky
         return makePtr(exp(m_arg) * m_arg->derivative(variable));
     }
 }
-
-#endif
 

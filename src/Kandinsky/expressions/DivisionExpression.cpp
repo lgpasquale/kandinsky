@@ -1,8 +1,7 @@
-#ifndef KANDINSKY_DIVISIONEXPRESSION_TPP_
-#define KANDINSKY_DIVISIONEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/DivisionExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
 #include <Kandinsky/expressions/SubtractionExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -13,6 +12,4 @@ namespace Kandinsky
                 m_arg1 * m_arg2->derivative(variable) / m_arg2 / m_arg2);
     }
 }
-
-#endif
 

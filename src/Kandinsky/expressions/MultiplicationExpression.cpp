@@ -1,8 +1,6 @@
-#ifndef KANDINSKY_MULTIPLICATIONEXPRESSION_TPP_
-#define KANDINSKY_MULTIPLICATIONEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/MultiplicationExpression.hpp>
 #include <Kandinsky/expressions/AdditionExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -12,6 +10,4 @@ namespace Kandinsky
                 m_arg1 * m_arg2->derivative(variable));
     }
 }
-
-#endif
 

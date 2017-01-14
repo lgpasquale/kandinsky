@@ -1,8 +1,7 @@
-#ifndef KANDINSKY_SINEEXPRESSION_TPP_
-#define KANDINSKY_SINEEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/SineExpression.hpp>
 #include <Kandinsky/expressions/CosineExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -11,6 +10,4 @@ namespace Kandinsky
         return makePtr(cos(m_arg) * m_arg->derivative(variable));
     }
 }
-
-#endif
 

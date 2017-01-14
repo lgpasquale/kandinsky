@@ -1,7 +1,6 @@
-#ifndef KANDINSKY_ABSEXPRESSION_TPP_
-#define KANDINSKY_ABSEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/AbsExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 #include <cmath>
 
@@ -12,6 +11,4 @@ namespace Kandinsky
         return BaseExpression::makePtr(sign(m_arg) * m_arg->derivative(variable));
     }
 }
-
-#endif
 

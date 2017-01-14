@@ -1,8 +1,9 @@
-#ifndef KANDINSKY_POWEREXPRESSION_TPP_
-#define KANDINSKY_POWEREXPRESSION_TPP_
-
 #include <Kandinsky/expressions/PowerExpression.hpp>
 #include <Kandinsky/expressions/NaturalLogarithmExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
+#include <Kandinsky/expressions/DivisionExpression.hpp>
+#include <Kandinsky/expressions/AdditionExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -13,6 +14,4 @@ namespace Kandinsky
                 m_arg2 * m_arg1->derivative(variable) / m_arg1));
     }
 }
-
-#endif
 

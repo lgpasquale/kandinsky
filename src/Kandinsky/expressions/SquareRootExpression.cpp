@@ -1,7 +1,7 @@
-#ifndef KANDINSKY_SQUAREROOTEXPRESSION_TPP_
-#define KANDINSKY_SQUAREROOTEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/SquareRootExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
+#include <Kandinsky/expressions/DivisionExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -10,6 +10,4 @@ namespace Kandinsky
         return makePtr(0.5 / sqrt(m_arg) * m_arg->derivative(variable));
     }
 }
-
-#endif
 

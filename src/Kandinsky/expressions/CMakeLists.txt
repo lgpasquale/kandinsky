@@ -31,33 +31,35 @@ set(${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS}
     expressions/ArcTangentExpression.hpp
 
     expressions/BaseExpression.tpp
-    expressions/Constant.tpp
-    expressions/VariableExpression.tpp
-    expressions/Expression.tpp
-
-    expressions/AdditionExpression.tpp
-    expressions/SubtractionExpression.tpp
-    expressions/MultiplicationExpression.tpp
-    expressions/DivisionExpression.tpp
-
-    expressions/MinusExpression.tpp
-    expressions/SignExpression.tpp
-    expressions/AbsExpression.tpp
-
-    expressions/ExponentialExpression.tpp
-    expressions/NaturalLogarithmExpression.tpp
-
-    expressions/PowerExpression.tpp
-    expressions/SquareRootExpression.tpp
-
-    expressions/SineExpression.tpp
-    expressions/CosineExpression.tpp
-    expressions/TangentExpression.tpp
-    expressions/ArcSineExpression.tpp
-    expressions/ArcCosineExpression.tpp
-    expressions/ArcTangentExpression.tpp
     CACHE INTERNAL "")
 
 set(${PROJECT_NAME}_SOURCES ${${PROJECT_NAME}_SOURCES}
+    expressions/BaseExpression.cpp
+    expressions/Constant.cpp
+    expressions/VariableExpression.cpp
+    expressions/Variable.cpp
+    expressions/Expression.cpp
+
+    expressions/AdditionExpression.cpp
+    expressions/SubtractionExpression.cpp
+    expressions/MultiplicationExpression.cpp
+    expressions/DivisionExpression.cpp
+
+    expressions/MinusExpression.cpp
+    expressions/SignExpression.cpp
+    expressions/AbsExpression.cpp
+
+    expressions/ExponentialExpression.cpp
+    expressions/NaturalLogarithmExpression.cpp
+
+    expressions/PowerExpression.cpp
+    expressions/SquareRootExpression.cpp
+
+    expressions/SineExpression.cpp
+    expressions/CosineExpression.cpp
+    expressions/TangentExpression.cpp
+    expressions/ArcSineExpression.cpp
+    expressions/ArcCosineExpression.cpp
+    expressions/ArcTangentExpression.cpp
     CACHE INTERNAL "")
 

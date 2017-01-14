@@ -1,6 +1,3 @@
-#ifndef KANDINSKY_EXPRESSION_TPP_
-#define KANDINSKY_EXPRESSION_TPP_
-
 #include <Kandinsky/expressions/Expression.hpp>
 #include <Kandinsky/expressions/Variable.hpp>
 
@@ -17,7 +14,5 @@ namespace Kandinsky
         return derivativeMap;
     }
 }
-
-#endif
 
 

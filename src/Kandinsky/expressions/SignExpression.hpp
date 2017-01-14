@@ -2,6 +2,7 @@
 #define KANDINSKY_SIGNEXPRESSION_HPP_
 
 #include <Kandinsky/expressions/UnaryExpression.hpp>
+#include <Kandinsky/expressions/VariableExpression.hpp>
 
 #include <cmath>
 

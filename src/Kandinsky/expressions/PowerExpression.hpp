@@ -2,6 +2,7 @@
 #define KANDINSKY_POWEREXPRESSION_HPP_
 
 #include <Kandinsky/expressions/BinaryExpression.hpp>
+#include <Kandinsky/expressions/VariableExpression.hpp>
 
 #include <cmath>
 

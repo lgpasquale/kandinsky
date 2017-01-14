@@ -54,15 +54,9 @@ namespace Kandinsky
             return m_variableExpressionPtr->evaluate();
         }
 
-        std::shared_ptr<BaseExpression> derivative(const std::shared_ptr<VariableExpression>& variable) const
-        {
-            return m_variableExpressionPtr->derivative(variable);
-        }
+        std::shared_ptr<BaseExpression> derivative(const std::shared_ptr<VariableExpression>& variable) const;
 
-        virtual Expression differentiate(const Variable& variable) const
-        {
-            return m_variableExpressionPtr->differentiate(variable);
-        }
+        virtual Expression differentiate(const Variable& variable) const;
 
         VariableExpressionPtr getVariableExpressionPtr() const
         {
@@ -78,10 +72,7 @@ namespace Kandinsky
         VariableExpressionPtr m_variableExpressionPtr;
     };
 
-    bool operator<(const Variable& variable1, const Variable& variable2)
-    {
-        return (variable1.getIndex() < variable2.getIndex());
-    }
+    bool operator<(const Variable& variable1, const Variable& variable2);
 }
 
 #endif

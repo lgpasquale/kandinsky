@@ -1,8 +1,9 @@
-#ifndef KANDINSKY_ARCSINEEXPRESSION_TPP_
-#define KANDINSKY_ARCSINEEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/ArcSineExpression.hpp>
 #include <Kandinsky/expressions/SquareRootExpression.hpp>
+#include <Kandinsky/expressions/MultiplicationExpression.hpp>
+#include <Kandinsky/expressions/DivisionExpression.hpp>
+#include <Kandinsky/expressions/SubtractionExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -11,6 +12,4 @@ namespace Kandinsky
         return makePtr(m_arg->derivative(variable) / sqrt(1 - m_arg * m_arg));
     }
 }
-
-#endif
 

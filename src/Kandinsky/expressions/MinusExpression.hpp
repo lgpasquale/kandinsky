@@ -2,6 +2,7 @@
 #define KANDINSKY_MINUSEXPRESSION_HPP_
 
 #include <Kandinsky/expressions/UnaryExpression.hpp>
+#include <Kandinsky/expressions/VariableExpression.hpp>
 
 namespace Kandinsky
 {

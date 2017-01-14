@@ -1,8 +1,6 @@
-#ifndef KANDINSKY_VARIABLEEXPRESSION_TPP_
-#define KANDINSKY_VARIABLEEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/BaseExpression.hpp>
 #include <Kandinsky/expressions/Variable.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -16,6 +14,4 @@ namespace Kandinsky
         variableSet.insert(Variable(std::dynamic_pointer_cast<VariableExpression>(thisSharedPtr)));
     }
 }
-
-#endif
 

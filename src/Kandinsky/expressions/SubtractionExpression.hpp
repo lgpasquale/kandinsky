@@ -2,6 +2,7 @@
 #define KANDINSKY_SUBTRACTIONEXPRESSION_HPP_
 
 #include <Kandinsky/expressions/BinaryExpression.hpp>
+#include <Kandinsky/expressions/VariableExpression.hpp>
 
 namespace Kandinsky
 {

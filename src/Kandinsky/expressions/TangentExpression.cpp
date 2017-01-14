@@ -1,8 +1,7 @@
-#ifndef KANDINSKY_TANGENTEXPRESSION_TPP_
-#define KANDINSKY_TANGENTEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/TangentExpression.hpp>
 #include <Kandinsky/expressions/CosineExpression.hpp>
+#include <Kandinsky/expressions/DivisionExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -11,6 +10,4 @@ namespace Kandinsky
         return makePtr(m_arg->derivative(variable) / cos(m_arg) / cos(m_arg));
     }
 }
-
-#endif
 

@@ -1,7 +1,5 @@
-#ifndef KANDINSKY_SIGNEXPRESSION_TPP_
-#define KANDINSKY_SIGNEXPRESSION_TPP_
-
 #include <Kandinsky/expressions/SignExpression.hpp>
+#include <Kandinsky/expressions/BaseExpression.tpp>
 
 namespace Kandinsky
 {
@@ -10,6 +8,4 @@ namespace Kandinsky
         return BaseExpression::makePtr(Constant(0));
     }
 }
-
-#endif
 

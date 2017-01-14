@@ -2,7 +2,7 @@
 #define KANDINSKY_DIVISIONEXPRESSION_HPP_
 
 #include <Kandinsky/expressions/BinaryExpression.hpp>
-#include <Kandinsky/expressions/SubtractionExpression.hpp>
+#include <Kandinsky/expressions/VariableExpression.hpp>
 
 namespace Kandinsky
 {
