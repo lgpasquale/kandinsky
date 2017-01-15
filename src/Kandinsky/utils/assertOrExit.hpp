@@ -6,7 +6,7 @@
 
 namespace Kandinsky
 {
-    void assertOrExit(bool condition, std::string errorMessage)
+    inline void assertOrExit(bool condition, std::string errorMessage)
     {
         if (!condition)
         {
