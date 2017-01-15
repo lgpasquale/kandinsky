@@ -12,9 +12,4 @@ namespace Kandinsky
     {
         return m_variableExpressionPtr->differentiate(variable);
     }
-
-    bool operator<(const Variable& variable1, const Variable& variable2)
-    {
-        return (variable1.getIndex() < variable2.getIndex());
-    }
 }

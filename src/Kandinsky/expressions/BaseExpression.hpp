@@ -11,6 +11,11 @@ namespace Kandinsky
     class Variable;
     class Expression;
 
+    struct VariableLessThanComparator
+    {
+        bool operator()(const Variable& variable1, const Variable& variable2);
+    };
+
     class BaseExpression
     {
     public:
@@ -20,9 +25,9 @@ namespace Kandinsky
 
         virtual Expression differentiate(const Variable& variable) const;
 
-        virtual std::set<Variable> variables(const std::shared_ptr<BaseExpression>& thisSharedPtr) const;
+        virtual std::set<Variable, VariableLessThanComparator> variables(const std::shared_ptr<BaseExpression>& thisSharedPtr) const;
 
-        virtual void fillVariableSet(std::set<Variable>& variableSet, const std::shared_ptr<BaseExpression>& thisSharedPtr) const = 0;
+        virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const std::shared_ptr<BaseExpression>& thisSharedPtr) const = 0;
 
         virtual std::string print() const = 0;
 

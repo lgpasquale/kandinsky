@@ -9,7 +9,7 @@ namespace Kandinsky
         return makePtr(Constant(variable.get() == this));
     }
 
-    void VariableExpression::fillVariableSet(std::set<Variable>& variableSet, const BaseExpressionPtr& thisSharedPtr) const
+    void VariableExpression::fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const BaseExpressionPtr& thisSharedPtr) const
     {
         variableSet.insert(Variable(std::dynamic_pointer_cast<VariableExpression>(thisSharedPtr)));
     }

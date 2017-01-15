@@ -53,14 +53,14 @@ namespace Kandinsky
 
         virtual std::shared_ptr<BaseExpression> derivative(const std::shared_ptr<VariableExpression>& variable) const;
 
-        virtual void fillVariableSet(std::set<Variable>& variableSet, const BaseExpressionPtr& thisSharedPtr) const;
+        virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const BaseExpressionPtr& thisSharedPtr) const;
 
         virtual std::string print() const
         {
             return m_name;
         }
 
-        bool operator==(const VariableExpression& variable) const
+        bool sameAs(const VariableExpression& variable) const
         {
             return this == &variable;
         }

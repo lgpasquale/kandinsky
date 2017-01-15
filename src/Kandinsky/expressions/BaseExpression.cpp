@@ -6,14 +6,19 @@
 
 namespace Kandinsky
 {
+    bool VariableLessThanComparator::operator()(const Variable& variable1, const Variable& variable2)
+    {
+        return variable1.getIndex() < variable2.getIndex();
+    }
+
     Expression BaseExpression::differentiate(const Variable& variable) const
     {
         return Expression(derivative(variable.getVariableExpressionPtr()));
     }
 
-    std::set<Variable> BaseExpression::variables(const std::shared_ptr<BaseExpression>& thisSharedPtr) const
+    std::set<Variable, VariableLessThanComparator> BaseExpression::variables(const std::shared_ptr<BaseExpression>& thisSharedPtr) const
     {
-        std::set<Variable> variableSet;
+        std::set<Variable, VariableLessThanComparator> variableSet;
         fillVariableSet(variableSet, thisSharedPtr);
         return variableSet;
     }

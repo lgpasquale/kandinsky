@@ -52,4 +52,5 @@ add_project_test_executable(arccosine_evaluation_test ArcCosineEvaluationTest.cp
 add_project_test_executable(arctangent_evaluation_test ArcTangentEvaluationTest.cpp
     TEST_NAME ArcTangentEvaluationTest)
 
+add_subdirectory(comparison)
 

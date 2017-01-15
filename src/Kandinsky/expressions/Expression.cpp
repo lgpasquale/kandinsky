@@ -3,10 +3,10 @@
 
 namespace Kandinsky
 {
-    std::map<Variable, Expression> Expression::derivatives() const
+    std::map<Variable, Expression, VariableLessThanComparator> Expression::derivatives() const
     {
-        std::map<Variable, Expression> derivativeMap;
-        std::set<Variable> variableSet = variables();
+        std::map<Variable, Expression, VariableLessThanComparator> derivativeMap;
+        std::set<Variable, VariableLessThanComparator> variableSet = variables();
         for (auto& variable : variableSet)
         {
             derivativeMap.insert(std::make_pair(variable, differentiate(variable)));

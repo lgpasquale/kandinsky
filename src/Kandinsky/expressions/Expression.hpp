@@ -48,12 +48,12 @@ namespace Kandinsky
             return m_baseExpressionPtr->differentiate(variable);
         }
 
-        virtual std::set<Variable> variables() const
+        virtual std::set<Variable, VariableLessThanComparator> variables() const
         {
             return m_baseExpressionPtr->variables(m_baseExpressionPtr);
         }
 
-        virtual std::map<Variable, Expression> derivatives() const;
+        virtual std::map<Variable, Expression, VariableLessThanComparator> derivatives() const;
 
         virtual std::string print() const
         {

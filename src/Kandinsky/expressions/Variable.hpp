@@ -63,7 +63,7 @@ namespace Kandinsky
             return m_variableExpressionPtr;
         }
 
-        bool operator==(const Variable& variable) const
+        bool sameAs(const Variable& variable) const
         {
             return m_variableExpressionPtr == variable.getVariableExpressionPtr();
         }
@@ -72,7 +72,6 @@ namespace Kandinsky
         VariableExpressionPtr m_variableExpressionPtr;
     };
 
-    bool operator<(const Variable& variable1, const Variable& variable2);
 }
 
 #endif

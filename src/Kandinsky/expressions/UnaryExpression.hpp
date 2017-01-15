@@ -12,7 +12,7 @@ namespace Kandinsky
         UnaryExpression(BaseExpressionPtr arg)
             : m_arg(arg) {}
 
-        virtual void fillVariableSet(std::set<Variable>& variableSet, const BaseExpressionPtr& /*thisSharedPtr*/) const
+        virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const BaseExpressionPtr& /*thisSharedPtr*/) const
         {
             m_arg->fillVariableSet(variableSet, m_arg);
         }

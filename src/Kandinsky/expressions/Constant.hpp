@@ -17,7 +17,7 @@ namespace Kandinsky
 
         virtual BaseExpressionPtr derivative(const std::shared_ptr<VariableExpression>& variable) const;
 
-        virtual void fillVariableSet(std::set<Variable>& /*variableSet*/, const BaseExpressionPtr& /*thisSharedPtr*/) const
+        virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& /*variableSet*/, const BaseExpressionPtr& /*thisSharedPtr*/) const
         {
         }
 

@@ -63,3 +63,5 @@ set(${PROJECT_NAME}_SOURCES ${${PROJECT_NAME}_SOURCES}
     expressions/ArcTangentExpression.cpp
     CACHE INTERNAL "")
 
+add_subdirectory(comparison)
+
