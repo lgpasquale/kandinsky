@@ -39,6 +39,10 @@
 #include <Kandinsky/expressions/comparison/GreaterExpression.hpp>
 #include <Kandinsky/expressions/comparison/GreaterEqualExpression.hpp>
 
+#include <Kandinsky/expressions/logical/AndExpression.hpp>
+#include <Kandinsky/expressions/logical/OrExpression.hpp>
+#include <Kandinsky/expressions/logical/NotExpression.hpp>
+
 #include <Kandinsky/expressions/BaseExpression.tpp>
 
 #include <Kandinsky/utils/assertOrExit.hpp>

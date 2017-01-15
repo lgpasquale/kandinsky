@@ -53,4 +53,5 @@ add_project_test_executable(arctangent_evaluation_test ArcTangentEvaluationTest.
     TEST_NAME ArcTangentEvaluationTest)
 
 add_subdirectory(comparison)
+add_subdirectory(logical)
 

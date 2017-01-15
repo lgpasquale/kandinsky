@@ -64,4 +64,5 @@ set(${PROJECT_NAME}_SOURCES ${${PROJECT_NAME}_SOURCES}
     CACHE INTERNAL "")
 
 add_subdirectory(comparison)
+add_subdirectory(logical)
 
