@@ -11,7 +11,7 @@ namespace Kandinsky
     class ArcCosineExpression : public UnaryExpression
     {
     public:
-        ArcCosineExpression(BaseExpressionPtr arg)
+        ArcCosineExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

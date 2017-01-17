@@ -11,7 +11,7 @@ namespace Kandinsky
     class ArcTangentExpression : public UnaryExpression
     {
     public:
-        ArcTangentExpression(BaseExpressionPtr arg)
+        ArcTangentExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

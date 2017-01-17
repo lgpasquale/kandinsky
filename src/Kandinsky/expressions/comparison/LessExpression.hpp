@@ -27,7 +27,7 @@ namespace Kandinsky
         }
     };
 
-    template <class Arg1T,class Arg2T,
+    template <class Arg1T, class Arg2T,
             typename std::enable_if<
             std::is_base_of<Variable, Arg1T>::value ||
             std::is_base_of<Variable, Arg2T>::value ||

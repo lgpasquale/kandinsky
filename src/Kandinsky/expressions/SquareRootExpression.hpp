@@ -11,7 +11,7 @@ namespace Kandinsky
     class SquareRootExpression : public UnaryExpression
     {
     public:
-        SquareRootExpression(BaseExpressionPtr arg)
+        SquareRootExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

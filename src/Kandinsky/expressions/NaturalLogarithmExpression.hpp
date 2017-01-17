@@ -11,7 +11,7 @@ namespace Kandinsky
     class NaturalLogarithmExpression : public UnaryExpression
     {
     public:
-        NaturalLogarithmExpression(BaseExpressionPtr arg)
+        NaturalLogarithmExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

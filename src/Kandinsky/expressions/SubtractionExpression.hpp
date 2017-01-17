@@ -9,7 +9,7 @@ namespace Kandinsky
     class SubtractionExpression : public BinaryExpression
     {
     public:
-        SubtractionExpression(BaseExpressionPtr arg1, BaseExpressionPtr arg2)
+        SubtractionExpression(const BaseExpressionPtr& arg1, const BaseExpressionPtr& arg2)
             : BinaryExpression(arg1, arg2) {}
 
         double evaluate() const
@@ -25,7 +25,7 @@ namespace Kandinsky
         }
     };
 
-    template <class Arg1T,class Arg2T,
+    template <class Arg1T, class Arg2T,
             typename std::enable_if<
             std::is_base_of<Variable, Arg1T>::value ||
             std::is_base_of<Variable, Arg2T>::value ||

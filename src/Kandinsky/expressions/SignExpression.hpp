@@ -11,7 +11,7 @@ namespace Kandinsky
     class SignExpression : public UnaryExpression
     {
     public:
-        SignExpression(BaseExpressionPtr arg)
+        SignExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

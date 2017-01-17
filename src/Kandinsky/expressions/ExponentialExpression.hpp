@@ -11,7 +11,7 @@ namespace Kandinsky
     class ExponentialExpression : public UnaryExpression
     {
     public:
-        ExponentialExpression(BaseExpressionPtr arg)
+        ExponentialExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

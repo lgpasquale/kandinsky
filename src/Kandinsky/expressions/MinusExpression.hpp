@@ -9,7 +9,7 @@ namespace Kandinsky
     class MinusExpression : public UnaryExpression
     {
     public:
-        MinusExpression(BaseExpressionPtr arg)
+        MinusExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

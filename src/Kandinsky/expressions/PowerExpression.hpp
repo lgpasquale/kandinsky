@@ -11,7 +11,7 @@ namespace Kandinsky
     class PowerExpression : public BinaryExpression
     {
     public:
-        PowerExpression(BaseExpressionPtr arg1, BaseExpressionPtr arg2)
+        PowerExpression(const BaseExpressionPtr& arg1, const BaseExpressionPtr& arg2)
             : BinaryExpression(arg1, arg2) {}
 
         double evaluate() const

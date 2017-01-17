@@ -12,7 +12,7 @@ namespace Kandinsky
     class AbsExpression : public UnaryExpression
     {
     public:
-        AbsExpression(BaseExpressionPtr arg)
+        AbsExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

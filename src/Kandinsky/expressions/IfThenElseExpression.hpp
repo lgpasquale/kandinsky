@@ -9,7 +9,7 @@ namespace Kandinsky
     class IfThenElseExpression : public TernaryExpression
     {
     public:
-        IfThenElseExpression(BaseExpressionPtr arg1, BaseExpressionPtr arg2, BaseExpressionPtr arg3)
+        IfThenElseExpression(const BaseExpressionPtr& arg1, const BaseExpressionPtr& arg2, const BaseExpressionPtr& arg3)
             : TernaryExpression(arg1, arg2, arg3) {}
 
         double evaluate() const

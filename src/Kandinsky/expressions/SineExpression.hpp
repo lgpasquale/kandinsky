@@ -11,7 +11,7 @@ namespace Kandinsky
     class SineExpression : public UnaryExpression
     {
     public:
-        SineExpression(BaseExpressionPtr arg)
+        SineExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const

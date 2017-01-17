@@ -11,7 +11,7 @@ namespace Kandinsky
     class TangentExpression : public UnaryExpression
     {
     public:
-        TangentExpression(BaseExpressionPtr arg)
+        TangentExpression(const BaseExpressionPtr& arg)
             : UnaryExpression(arg) {}
 
         double evaluate() const
