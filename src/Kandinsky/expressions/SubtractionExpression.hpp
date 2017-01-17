@@ -21,7 +21,7 @@ namespace Kandinsky
 
         virtual std::string toString() const
         {
-            return m_arg1->toString() + " - " + m_arg2->toString();
+            return "(" + m_arg1->toString() + " - " + m_arg2->toString() + ")";
         }
     };
 

@@ -23,7 +23,7 @@ namespace Kandinsky
 
         virtual std::string toString() const
         {
-            return "!" + m_arg->toString() + "";
+            return "!" + m_arg->toString();
         }
     };
 
