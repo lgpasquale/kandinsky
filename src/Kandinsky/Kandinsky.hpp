@@ -32,6 +32,8 @@
 #include <Kandinsky/expressions/ArcCosineExpression.hpp>
 #include <Kandinsky/expressions/ArcTangentExpression.hpp>
 
+#include <Kandinsky/expressions/IfThenElseExpression.hpp>
+
 #include <Kandinsky/expressions/comparison/EqualExpression.hpp>
 #include <Kandinsky/expressions/comparison/NotEqualExpression.hpp>
 #include <Kandinsky/expressions/comparison/LessExpression.hpp>

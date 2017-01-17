@@ -25,21 +25,47 @@ namespace Kandinsky
         }
     };
 
-    template <class Arg1T,class Arg2T>
+    template <class Arg1T,class Arg2T,
+            typename std::enable_if<
+            std::is_base_of<Variable, Arg1T>::value ||
+            std::is_base_of<Variable, Arg2T>::value ||
+            std::is_base_of<Expression, Arg1T>::value ||
+            std::is_base_of<Expression, Arg2T>::value ||
+            std::is_base_of<BaseExpression, Arg1T>::value ||
+            std::is_base_of<BaseExpression, Arg2T>::value ||
+            std::is_convertible<Arg1T, std::shared_ptr<BaseExpression> >::value ||
+            std::is_convertible<Arg2T, std::shared_ptr<BaseExpression> >::value
+            >::type* = nullptr>
     AdditionExpression
     operator+(const Arg1T& arg1, const Arg2T& arg2)
     {
         return AdditionExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
     }
 
-    template <class ArgT>
+    template <class ArgT,
+            typename std::enable_if<
+            std::is_base_of<Variable, ArgT>::value ||
+            std::is_base_of<Expression, ArgT>::value ||
+            std::is_base_of<BaseExpression, ArgT>::value ||
+            std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value
+            >::type* = nullptr>
     ArgT
     operator+(const ArgT& arg)
     {
         return arg;
     }
 
-    template <class Arg1T, class Arg2T>
+    template <class Arg1T, class Arg2T,
+            typename std::enable_if<
+            std::is_base_of<Variable, Arg1T>::value ||
+            std::is_base_of<Variable, Arg2T>::value ||
+            std::is_base_of<Expression, Arg1T>::value ||
+            std::is_base_of<Expression, Arg2T>::value ||
+            std::is_base_of<BaseExpression, Arg1T>::value ||
+            std::is_base_of<BaseExpression, Arg2T>::value ||
+            std::is_convertible<Arg1T, std::shared_ptr<BaseExpression> >::value ||
+            std::is_convertible<Arg2T, std::shared_ptr<BaseExpression> >::value
+            >::type* = nullptr>
     Arg1T&
     operator+=(Arg1T& arg1, const Arg2T& arg2)
     {

@@ -55,4 +55,7 @@ add_project_test_executable(arccosine_differentiation_test ArcCosineDifferentiat
 add_project_test_executable(arctangent_differentiation_test ArcTangentDifferentiationTest.cpp
     TEST_NAME ArcTangentDifferentiationTest)
 
+add_project_test_executable(if_then_else_differentiation_test IfThenElseDifferentiationTest.cpp
+    TEST_NAME IfThenElseDifferentiationTest)
+
 

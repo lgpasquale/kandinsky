@@ -25,7 +25,13 @@ namespace Kandinsky
         }
     };
 
-    template <class ArgT>
+    template <class ArgT,
+            typename std::enable_if<
+            std::is_base_of<Variable, ArgT>::value ||
+            std::is_base_of<Expression, ArgT>::value ||
+            std::is_base_of<BaseExpression, ArgT>::value ||
+            std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value
+            >::type* = nullptr>
     MinusExpression operator-(const ArgT& arg)
     {
         return MinusExpression(BaseExpression::makePtr(arg));

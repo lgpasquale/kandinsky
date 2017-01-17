@@ -9,7 +9,7 @@ namespace Kandinsky
     class UnaryExpression : public BaseExpression
     {
     public:
-        UnaryExpression(BaseExpressionPtr arg)
+        UnaryExpression(const BaseExpressionPtr& arg)
             : m_arg(arg) {}
 
         virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const BaseExpressionPtr& /*thisSharedPtr*/) const

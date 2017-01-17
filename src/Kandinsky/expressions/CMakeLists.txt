@@ -30,6 +30,8 @@ set(${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS}
     expressions/ArcCosineExpression.hpp
     expressions/ArcTangentExpression.hpp
 
+    expressions/IfThenElseExpression.hpp
+
     expressions/BaseExpression.tpp
     CACHE INTERNAL "")
 
@@ -61,6 +63,8 @@ set(${PROJECT_NAME}_SOURCES ${${PROJECT_NAME}_SOURCES}
     expressions/ArcSineExpression.cpp
     expressions/ArcCosineExpression.cpp
     expressions/ArcTangentExpression.cpp
+
+    expressions/IfThenElseExpression.cpp
     CACHE INTERNAL "")
 
 add_subdirectory(comparison)
