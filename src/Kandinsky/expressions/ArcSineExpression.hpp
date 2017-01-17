@@ -21,9 +21,9 @@ namespace Kandinsky
 
         virtual BaseExpressionPtr derivative(const VariableExpressionPtr& variable) const;
 
-        virtual std::string print() const
+        virtual std::string toString() const
         {
-            return "asin(" + m_arg->print() + ")";
+            return "asin(" + m_arg->toString() + ")";
         }
     };
 

@@ -21,7 +21,7 @@ namespace Kandinsky
         {
         }
 
-        virtual std::string print() const
+        virtual std::string toString() const
         {
             return std::to_string(m_value);
         }

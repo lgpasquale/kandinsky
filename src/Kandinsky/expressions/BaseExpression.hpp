@@ -29,7 +29,7 @@ namespace Kandinsky
 
         virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const std::shared_ptr<BaseExpression>& thisSharedPtr) const = 0;
 
-        virtual std::string print() const = 0;
+        virtual std::string toString() const = 0;
 
         template <class T>
         static std::shared_ptr<BaseExpression> makePtr(const T& arg);

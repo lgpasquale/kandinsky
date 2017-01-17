@@ -55,7 +55,7 @@ namespace Kandinsky
 
         virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const BaseExpressionPtr& thisSharedPtr) const;
 
-        virtual std::string print() const
+        virtual std::string toString() const
         {
             return m_name;
         }

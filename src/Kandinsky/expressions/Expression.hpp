@@ -55,9 +55,9 @@ namespace Kandinsky
 
         virtual std::map<Variable, Expression, VariableLessThanComparator> derivatives() const;
 
-        virtual std::string print() const
+        virtual std::string toString() const
         {
-            return m_baseExpressionPtr->print();
+            return m_baseExpressionPtr->toString();
         }
 
         BaseExpressionPtr getBaseExpressionPtr() const
