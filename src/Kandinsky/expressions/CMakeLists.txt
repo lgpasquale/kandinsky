@@ -7,6 +7,7 @@ set(${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS}
     expressions/Expression.hpp
     expressions/UnaryExpression.hpp
     expressions/BinaryExpression.hpp
+    expressions/TernaryExpression.hpp
 
     expressions/AdditionExpression.hpp
     expressions/SubtractionExpression.hpp

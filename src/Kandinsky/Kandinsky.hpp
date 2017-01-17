@@ -9,6 +9,7 @@
 #include <Kandinsky/expressions/Expression.hpp>
 #include <Kandinsky/expressions/UnaryExpression.hpp>
 #include <Kandinsky/expressions/BinaryExpression.hpp>
+#include <Kandinsky/expressions/TernaryExpression.hpp>
 
 #include <Kandinsky/expressions/AdditionExpression.hpp>
 #include <Kandinsky/expressions/SubtractionExpression.hpp>
