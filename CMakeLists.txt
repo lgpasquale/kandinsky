@@ -20,7 +20,7 @@ endif()
 # Project setup (basic flags, variables, cmake function...)
 set(CUPID_VERSION "dd25cff83567503ee7c43bda5ac44f30a307e2ba")
 if(EXISTS "${CMAKE_SOURCE_DIR}/cupid/src/SetUpProject.cmake")
-    include("${CMAKE_SOURCE_DIR}/cupid/src/SetUpProject.cmake")
+    set(CUPID_DIR "${CMAKE_SOURCE_DIR}/cupid")
 elseif(NOT EXISTS "${CMAKE_BINARY_DIR}/cupid/src/SetUpProject.cmake")
     message(STATUS "Downloading cupid...")
     file(DOWNLOAD https://github.com/lgpasquale/cupid/archive/${CUPID_VERSION}.zip
@@ -29,9 +29,9 @@ elseif(NOT EXISTS "${CMAKE_BINARY_DIR}/cupid/src/SetUpProject.cmake")
         WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
     execute_process(COMMAND "${CMAKE_COMMAND}" -E rename "cupid-${CUPID_VERSION}" "cupid"
         WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
-    include("${CMAKE_BINARY_DIR}/cupid/src/SetUpProject.cmake")
+    set(CUPID_DIR "${CMAKE_BINARY_DIR}/cupid")
 endif()
-#include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/src/SetUpProject.cmake)
+include("${CUPID_DIR}/src/SetUpProject.cmake")
 
 #================================
 # Dependencies
