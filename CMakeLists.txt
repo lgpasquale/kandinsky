@@ -18,17 +18,19 @@ if(${PROJECT_NAME}_ENABLE_TESTS)
 endif()
 
 # Project setup (basic flags, variables, cmake function...)
-set(CUPID_VERSION "ceb627b908c9394b89162708f699dcf742aadbc9")
+set(CUPID_VERSION "aff23ed14632c33ab6e60bb26ff686f1cc9b3838")
 if(EXISTS "${CMAKE_SOURCE_DIR}/cupid/src/SetUpProject.cmake")
     set(CUPID_DIR "${CMAKE_SOURCE_DIR}/cupid")
-elseif(NOT EXISTS "${CMAKE_BINARY_DIR}/cupid/src/SetUpProject.cmake")
-    message(STATUS "Downloading cupid...")
-    file(DOWNLOAD https://github.com/lgpasquale/cupid/archive/${CUPID_VERSION}.zip
-        "${CMAKE_BINARY_DIR}/cupid.zip")
-    execute_process(COMMAND "${CMAKE_COMMAND}" -E tar xf cupid.zip
-        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
-    execute_process(COMMAND "${CMAKE_COMMAND}" -E rename "cupid-${CUPID_VERSION}" "cupid"
-        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
+else ()
+    if(NOT EXISTS "${CMAKE_BINARY_DIR}/cupid/src/SetUpProject.cmake")
+        message(STATUS "Downloading cupid...")
+        file(DOWNLOAD https://github.com/lgpasquale/cupid/archive/${CUPID_VERSION}.zip
+            "${CMAKE_BINARY_DIR}/cupid.zip")
+        execute_process(COMMAND "${CMAKE_COMMAND}" -E tar xf cupid.zip
+            WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
+        execute_process(COMMAND "${CMAKE_COMMAND}" -E rename "cupid-${CUPID_VERSION}" "cupid"
+            WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
+    endif()
     set(CUPID_DIR "${CMAKE_BINARY_DIR}/cupid")
 endif()
 include("${CUPID_DIR}/src/SetUpProject.cmake")
