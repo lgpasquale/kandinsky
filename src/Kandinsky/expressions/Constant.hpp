@@ -3,6 +3,8 @@
 
 #include <Kandinsky/expressions/BaseExpression.hpp>
 
+#include <sstream>
+
 namespace Kandinsky
 {
     class Constant : public BaseExpression
@@ -23,7 +25,9 @@ namespace Kandinsky
 
         virtual std::string toString() const
         {
-            return std::to_string(m_value);
+            std::ostringstream valueStream;
+            valueStream << m_value;
+            return valueStream.str();
         }
 
     private:
