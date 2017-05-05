@@ -6,7 +6,7 @@
 
 namespace Kandinsky
 {
-    bool VariableLessThanComparator::operator()(const Variable& variable1, const Variable& variable2)
+    bool VariableLessThanComparator::operator()(const Variable& variable1, const Variable& variable2) const
     {
         return variable1.getIndex() < variable2.getIndex();
     }

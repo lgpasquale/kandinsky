@@ -13,7 +13,7 @@ namespace Kandinsky
 
     struct VariableLessThanComparator
     {
-        bool operator()(const Variable& variable1, const Variable& variable2);
+        bool operator()(const Variable& variable1, const Variable& variable2) const;
     };
 
     class BaseExpression
