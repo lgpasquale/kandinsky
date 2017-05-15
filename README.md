@@ -27,9 +27,12 @@ int main(int, char**)
     using Kandinsky::Variable;
     using Kandinsky::Expression;
 
-    Variable x("x"); // the argument is optional and provides a name for printing purposes
+    // Variable declarations (the argument is optional and provides a name for
+    // printing purposes)
+    Variable x("x");
     Variable y("y");
     Variable z("z");
+    // Function definition
     Expression f = x * x + Kandinsky::sqrt(y) * x;
 
     std::cout << "f(x,y) = " << f.toString() << std::endl;
@@ -100,3 +103,5 @@ make install
 ```
 Be sure to substitute `/some/build/dir` and `/some/install/dir` with suitable
 directories, and to replace `/kandinsy/source/dir` with the directory containing this README.
+
+Doxygen documentation can be built by running `make doc`.
