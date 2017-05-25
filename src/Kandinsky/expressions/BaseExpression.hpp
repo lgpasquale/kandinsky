@@ -34,6 +34,24 @@ namespace Kandinsky
         template <class T>
         static std::shared_ptr<BaseExpression> makePtr(const T& arg);
 
+        virtual size_t sizeOfInternalNodes() const
+        {
+            return sizeof(*this);
+        }
+
+        virtual size_t numberOfInternalNodes() const
+        {
+            return 0;
+        }
+
+        virtual size_t numberOfConstants() const
+        {
+            return 0;
+        }
+
+        virtual size_t sizeOfAllNodes(
+            const std::shared_ptr<BaseExpression>& thisSharedPtr) const;
+
     protected:
     };
 

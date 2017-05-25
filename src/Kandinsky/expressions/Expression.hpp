@@ -65,10 +65,24 @@ namespace Kandinsky
             return m_baseExpressionPtr;
         }
 
+        virtual size_t sizeOfAllNodes() const
+        {
+            return m_baseExpressionPtr->sizeOfAllNodes(m_baseExpressionPtr);
+        }
+
+        virtual size_t numberOfInternalNodes() const
+        {
+            return  m_baseExpressionPtr->numberOfInternalNodes();
+        }
+
+        virtual size_t numberOfConstants() const
+        {
+            return m_baseExpressionPtr->numberOfConstants();
+        }
+
     protected:
         BaseExpressionPtr m_baseExpressionPtr;
     };
 }
 
 #endif
-

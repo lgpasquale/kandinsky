@@ -14,4 +14,3 @@ namespace Kandinsky
         variableSet.insert(Variable(std::dynamic_pointer_cast<VariableExpression>(thisSharedPtr)));
     }
 }
-

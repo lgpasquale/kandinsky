@@ -17,10 +17,24 @@ namespace Kandinsky
             m_arg->fillVariableSet(variableSet, m_arg);
         }
 
+        virtual size_t sizeOfInternalNodes() const
+        {
+            return sizeof(*this) + m_arg->sizeOfInternalNodes();
+        }
+
+        virtual size_t numberOfInternalNodes() const
+        {
+            return 1 + m_arg->numberOfInternalNodes();
+        }
+
+        virtual size_t numberOfConstants() const
+        {
+            return m_arg->numberOfConstants();
+        }
+
     protected:
         BaseExpressionPtr m_arg;
     };
 }
 
 #endif
-

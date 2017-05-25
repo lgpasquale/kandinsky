@@ -30,6 +30,21 @@ namespace Kandinsky
             return valueStream.str();
         }
 
+        virtual size_t sizeOfInternalNodes() const
+        {
+            return 0;
+        }
+
+        virtual size_t numberOfInternalNodes() const
+        {
+            return 0;
+        }
+
+        virtual size_t numberOfConstants() const
+        {
+            return 1;
+        }
+
     private:
         double m_value;
     };
@@ -38,4 +53,3 @@ namespace Kandinsky
 }
 
 #endif
-

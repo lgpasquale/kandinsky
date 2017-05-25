@@ -18,6 +18,23 @@ namespace Kandinsky
             m_arg2->fillVariableSet(variableSet, m_arg2);
         }
 
+        virtual size_t sizeOfInternalNodes() const
+        {
+            return sizeof(*this) + m_arg1->sizeOfInternalNodes()
+                + m_arg2->sizeOfInternalNodes();
+        }
+
+        virtual size_t numberOfInternalNodes() const
+        {
+            return 1 + m_arg1->numberOfInternalNodes()
+                + m_arg2->numberOfInternalNodes();
+        }
+
+        virtual size_t numberOfConstants() const
+        {
+            return m_arg1->numberOfConstants() + m_arg2->numberOfConstants();
+        }
+
     protected:
         BaseExpressionPtr m_arg1;
         BaseExpressionPtr m_arg2;
@@ -25,4 +42,3 @@ namespace Kandinsky
 }
 
 #endif
-

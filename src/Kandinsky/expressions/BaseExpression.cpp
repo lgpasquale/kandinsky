@@ -1,6 +1,7 @@
 #include <Kandinsky/expressions/BaseExpression.hpp>
 #include <Kandinsky/expressions/BaseExpression.tpp>
 #include <Kandinsky/expressions/ExpressionTraits.hpp>
+#include <Kandinsky/expressions/Constant.hpp>
 #include <Kandinsky/expressions/Expression.hpp>
 #include <Kandinsky/expressions/Variable.hpp>
 
@@ -35,5 +36,11 @@ namespace Kandinsky
         return arg.getBaseExpressionPtr();
     }
 
+    size_t BaseExpression::sizeOfAllNodes(
+        const std::shared_ptr<BaseExpression>& thisSharedPtr) const
+    {
+        return sizeOfInternalNodes()
+            + numberOfConstants() * sizeof(Constant)
+            + variables(thisSharedPtr).size() * sizeof(VariableExpression);
+    }
 }
-

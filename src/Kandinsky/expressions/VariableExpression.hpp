@@ -65,6 +65,21 @@ namespace Kandinsky
             return this == &variable;
         }
 
+        virtual size_t sizeOfInternalNodes() const
+        {
+            return 0;
+        }
+
+        virtual size_t numberOfInternalNodes() const
+        {
+            return 0;
+        }
+
+        virtual size_t numberOfConstants() const
+        {
+            return 0;
+        }
+
     private:
         static std::string generateName()
         {
@@ -81,4 +96,3 @@ namespace Kandinsky
 }
 
 #endif
-
