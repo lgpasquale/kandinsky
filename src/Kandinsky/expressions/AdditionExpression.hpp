@@ -3,6 +3,7 @@
 
 #include <Kandinsky/expressions/BinaryExpression.hpp>
 #include <Kandinsky/expressions/VariableExpression.hpp>
+#include <Kandinsky/expressions/Expression.hpp>
 
 namespace Kandinsky
 {
@@ -36,10 +37,18 @@ namespace Kandinsky
             std::is_convertible<Arg1T, std::shared_ptr<BaseExpression> >::value ||
             std::is_convertible<Arg2T, std::shared_ptr<BaseExpression> >::value
             >::type* = nullptr>
-    AdditionExpression
+    Expression
     operator+(const Arg1T& arg1, const Arg2T& arg2)
     {
-        return AdditionExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
+        BaseExpressionPtr arg1Ptr = BaseExpression::makePtr(arg1);
+        BaseExpressionPtr arg2Ptr = BaseExpression::makePtr(arg2);
+        if ((bool(std::dynamic_pointer_cast<Constant>(arg1Ptr)) &&
+            arg1Ptr->evaluate() == 0))
+            return Expression(arg2);
+        if ((bool(std::dynamic_pointer_cast<Constant>(arg2Ptr)) &&
+            arg2Ptr->evaluate() == 0))
+            return Expression(arg1);
+        return Expression(AdditionExpression(arg1Ptr, arg2Ptr));
     }
 
     template <class ArgT,
@@ -75,4 +84,3 @@ namespace Kandinsky
 }
 
 #endif
-

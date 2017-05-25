@@ -3,6 +3,7 @@
 
 #include <Kandinsky/expressions/TernaryExpression.hpp>
 #include <Kandinsky/expressions/VariableExpression.hpp>
+#include <Kandinsky/expressions/Variable.hpp>
 
 namespace Kandinsky
 {
@@ -40,12 +41,21 @@ namespace Kandinsky
             std::is_convertible<Arg2T, std::shared_ptr<BaseExpression> >::value ||
             std::is_convertible<Arg3T, std::shared_ptr<BaseExpression> >::value
             >::type* = nullptr>
-    IfThenElseExpression
+    Expression
     ifThenElse(const Arg1T& arg1, const Arg2T& arg2, const Arg3T& arg3)
     {
-        return IfThenElseExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2), BaseExpression::makePtr(arg3));
+        BaseExpressionPtr arg1Ptr = BaseExpression::makePtr(arg1);
+        BaseExpressionPtr arg2Ptr = BaseExpression::makePtr(arg2);
+        BaseExpressionPtr arg3Ptr = BaseExpression::makePtr(arg3);
+        if (bool(std::dynamic_pointer_cast<Constant>(arg1Ptr)))
+        {
+            if (bool(arg1Ptr->evaluate()))
+                return Expression(arg2);
+            else
+                return Expression(arg3);
+        }
+        return Expression(IfThenElseExpression(arg1Ptr, arg2Ptr, arg3Ptr));
     }
 }
 
 #endif
-

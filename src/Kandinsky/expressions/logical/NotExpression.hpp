@@ -3,6 +3,7 @@
 
 #include <Kandinsky/expressions/UnaryExpression.hpp>
 #include <Kandinsky/expressions/VariableExpression.hpp>
+#include <Kandinsky/expressions/Expression.hpp>
 
 #include <cmath>
 
@@ -34,12 +35,14 @@ namespace Kandinsky
             std::is_base_of<BaseExpression, ArgT>::value ||
             std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value
             >::type* = nullptr>
-    NotExpression
+    Expression
     operator!(const ArgT& arg)
     {
-        return NotExpression(BaseExpression::makePtr(arg));
+        BaseExpressionPtr argPtr = BaseExpression::makePtr(arg);
+        if (bool(std::dynamic_pointer_cast<Constant>(argPtr)))
+            return Expression(Constant(!argPtr->evaluate()));
+        return Expression(NotExpression(argPtr));
     }
 }
 
 #endif
-
