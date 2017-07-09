@@ -21,6 +21,7 @@
 #include <Kandinsky/expressions/AbsExpression.hpp>
 
 #include <Kandinsky/expressions/ExponentialExpression.hpp>
+#include <Kandinsky/expressions/ErfExpression.hpp>
 #include <Kandinsky/expressions/NaturalLogarithmExpression.hpp>
 
 #include <Kandinsky/expressions/PowerExpression.hpp>

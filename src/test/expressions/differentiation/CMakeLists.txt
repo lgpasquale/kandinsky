@@ -36,6 +36,9 @@ add_project_test_executable(natural_logarithm_differentiation_test NaturalLogari
 
 add_project_test_executable(exponential_differentiation_test ExponentialDifferentiationTest.cpp
     TEST_NAME ExponentialDifferentiationTest)
+	
+add_project_test_executable(erf_differentiation_test ErfDifferentiationTest.cpp
+    TEST_NAME ErfDifferentiationTest)
 
 add_project_test_executable(sine_differentiation_test SineDifferentiationTest.cpp
     TEST_NAME SineDifferentiationTest)

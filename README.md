@@ -73,7 +73,7 @@ df/dy (3,4) = 0.75
 
 - Basic mathematical operations (`+`, `-`, `*`, `/`) are implemented by operator overloading
 - The following functions can be found within the namespace `Kandinsky`:  
-  `cos`, `sin`, `tan`, `acos`, `asin`, `atan`, `pow`, `sqrt`, `exp`, `log`,
+  `cos`, `sin`, `tan`, `acos`, `asin`, `erf`, `atan`, `pow`, `sqrt`, `exp`, `log`,
   `abs`, `sign`
 - Comparison operators (`==`, `!=`, `>`, `>=`, `<`, `<=`) are also overloaded
   for `Expressions` (they return an `Expression`, not a `bool`; once this `Expression` is evaluated it returns either 0 or 1)
