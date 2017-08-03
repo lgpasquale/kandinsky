@@ -17,6 +17,11 @@ namespace Kandinsky
             m_arg->fillVariableSet(variableSet, m_arg);
         }
 
+        virtual bool isConstant() const
+        {
+            return m_arg->isConstant();
+        }
+
         virtual size_t sizeOfInternalNodes() const
         {
             return sizeof(*this) + m_arg->sizeOfInternalNodes();

@@ -3,6 +3,8 @@
 
 #include <Kandinsky/expressions/BinaryExpression.hpp>
 #include <Kandinsky/expressions/VariableExpression.hpp>
+#include <Kandinsky/expressions/Expression.hpp>
+#include <Kandinsky/expressions/MinusExpression.hpp>
 
 namespace Kandinsky
 {
@@ -36,10 +38,18 @@ namespace Kandinsky
             std::is_convertible<Arg1T, std::shared_ptr<BaseExpression> >::value ||
             std::is_convertible<Arg2T, std::shared_ptr<BaseExpression> >::value
             >::type* = nullptr>
-    SubtractionExpression
+    Expression
     operator-(const Arg1T& arg1, const Arg2T& arg2)
     {
-        return SubtractionExpression(BaseExpression::makePtr(arg1), BaseExpression::makePtr(arg2));
+        BaseExpressionPtr arg1Ptr = BaseExpression::makePtr(arg1);
+        BaseExpressionPtr arg2Ptr = BaseExpression::makePtr(arg2);
+        if (arg1Ptr->isConstant() && arg2Ptr->isConstant())
+            return Expression(arg1Ptr->evaluate() - arg2Ptr->evaluate());
+        if (arg1Ptr->isConstant() && arg1Ptr->evaluate() == 0)
+            return Expression(-arg2);
+        if (arg2Ptr->isConstant() && arg2Ptr->evaluate() == 0)
+            return Expression(arg1);
+        return Expression(SubtractionExpression(arg1Ptr, arg2Ptr));
     }
 
     template <class Arg1T, class Arg2T>

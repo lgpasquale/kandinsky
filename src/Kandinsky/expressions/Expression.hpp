@@ -60,6 +60,11 @@ namespace Kandinsky
             return m_baseExpressionPtr->toString();
         }
 
+        virtual bool isConstant() const
+        {
+            return m_baseExpressionPtr->isConstant();
+        }
+
         BaseExpressionPtr getBaseExpressionPtr() const
         {
             return m_baseExpressionPtr;

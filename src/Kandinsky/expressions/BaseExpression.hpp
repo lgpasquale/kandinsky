@@ -31,6 +31,11 @@ namespace Kandinsky
 
         virtual std::string toString() const = 0;
 
+        virtual bool isConstant() const
+        {
+            return false;
+        }
+
         template <class T>
         static std::shared_ptr<BaseExpression> makePtr(const T& arg);
 
