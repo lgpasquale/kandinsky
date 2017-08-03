@@ -44,6 +44,10 @@ namespace Kandinsky
         BaseExpressionPtr arg2Ptr = BaseExpression::makePtr(arg2);
         if (arg1Ptr->isConstant() && arg2Ptr->isConstant())
             return Expression(arg1Ptr->evaluate() * arg2Ptr->evaluate());
+        if (arg1Ptr->isConstant() && arg1Ptr->evaluate() == 1)
+            return Expression(arg2);
+        if (arg2Ptr->isConstant() && arg2Ptr->evaluate() == 1)
+            return Expression(arg1);
         if ((arg1Ptr->isConstant() && arg1Ptr->evaluate() == 0) ||
             (arg2Ptr->isConstant() && arg2Ptr->evaluate() == 0))
             return Expression(Constant(0));
