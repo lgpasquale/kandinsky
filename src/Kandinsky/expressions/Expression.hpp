@@ -5,28 +5,57 @@
 #include <Kandinsky/expressions/Variable.hpp>
 
 #include <map>
+#include <type_traits>
 
 namespace Kandinsky
 {
     class Expression
     {
     public:
-        template <class ArgT>
+        template <class ArgT,
+                typename std::enable_if<
+                std::is_base_of<Variable, ArgT>::value ||
+                std::is_base_of<Expression, ArgT>::value ||
+                std::is_base_of<BaseExpression, ArgT>::value ||
+                std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value ||
+                std::is_fundamental<ArgT>::value
+                >::type* = nullptr>
         Expression(const ArgT& arg) : m_baseExpressionPtr(BaseExpression::makePtr(arg)) {}
 
-        template <class ArgT>
+        template <class ArgT,
+                typename std::enable_if<
+                std::is_base_of<Variable, ArgT>::value ||
+                std::is_base_of<Expression, ArgT>::value ||
+                std::is_base_of<BaseExpression, ArgT>::value ||
+                std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value ||
+                std::is_fundamental<ArgT>::value
+                >::type* = nullptr>
         Expression(const ArgT&& arg) : m_baseExpressionPtr(BaseExpression::makePtr(arg)) {}
 
         Expression() : Expression(Constant(0)) {}
 
-        template <class ArgT>
+        template <class ArgT,
+                typename std::enable_if<
+                std::is_base_of<Variable, ArgT>::value ||
+                std::is_base_of<Expression, ArgT>::value ||
+                std::is_base_of<BaseExpression, ArgT>::value ||
+                std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value ||
+                std::is_fundamental<ArgT>::value
+                >::type* = nullptr>
         Expression& operator=(const ArgT& arg)
         {
             m_baseExpressionPtr = BaseExpression::makePtr(arg);
             return *this;
         }
 
-        template <class ArgT>
+        template <class ArgT,
+                typename std::enable_if<
+                std::is_base_of<Variable, ArgT>::value ||
+                std::is_base_of<Expression, ArgT>::value ||
+                std::is_base_of<BaseExpression, ArgT>::value ||
+                std::is_convertible<ArgT, std::shared_ptr<BaseExpression> >::value ||
+                std::is_fundamental<ArgT>::value
+                >::type* = nullptr>
         Expression& operator=(const ArgT&& arg)
         {
             m_baseExpressionPtr = BaseExpression::makePtr(arg);
@@ -58,6 +87,11 @@ namespace Kandinsky
         virtual std::string toString() const
         {
             return m_baseExpressionPtr->toString();
+        }
+
+        virtual bool isConstant() const
+        {
+            return m_baseExpressionPtr->isConstant();
         }
 
         BaseExpressionPtr getBaseExpressionPtr() const

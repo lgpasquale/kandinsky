@@ -30,6 +30,11 @@ namespace Kandinsky
             return valueStream.str();
         }
 
+        virtual bool isConstant() const
+        {
+            return true;
+        }
+
         virtual size_t sizeOfInternalNodes() const
         {
             return 0;

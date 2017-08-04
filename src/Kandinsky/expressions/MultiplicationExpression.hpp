@@ -42,10 +42,14 @@ namespace Kandinsky
     {
         BaseExpressionPtr arg1Ptr = BaseExpression::makePtr(arg1);
         BaseExpressionPtr arg2Ptr = BaseExpression::makePtr(arg2);
-        if ((bool(std::dynamic_pointer_cast<Constant>(arg1Ptr)) &&
-            arg1Ptr->evaluate() == 0) ||
-            (bool(std::dynamic_pointer_cast<Constant>(arg2Ptr)) &&
-            arg2Ptr->evaluate() == 0))
+        if (arg1Ptr->isConstant() && arg2Ptr->isConstant())
+            return Expression(arg1Ptr->evaluate() * arg2Ptr->evaluate());
+        if (arg1Ptr->isConstant() && arg1Ptr->evaluate() == 1)
+            return Expression(arg2);
+        if (arg2Ptr->isConstant() && arg2Ptr->evaluate() == 1)
+            return Expression(arg1);
+        if ((arg1Ptr->isConstant() && arg1Ptr->evaluate() == 0) ||
+            (arg2Ptr->isConstant() && arg2Ptr->evaluate() == 0))
             return Expression(Constant(0));
         return Expression(MultiplicationExpression(arg1Ptr, arg2Ptr));
     }

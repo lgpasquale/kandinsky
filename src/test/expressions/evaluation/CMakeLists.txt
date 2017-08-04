@@ -34,6 +34,9 @@ add_project_test_executable(natural_logarithm_evaluation_test NaturalLogarithmEv
 add_project_test_executable(exponential_evaluation_test ExponentialEvaluationTest.cpp
     TEST_NAME ExponentialEvaluationTest)
 
+add_project_test_executable(erf_evaluation_test ErfEvaluationTest.cpp
+    TEST_NAME ErfEvaluationTest)
+	
 add_project_test_executable(sine_evaluation_test SineEvaluationTest.cpp
     TEST_NAME SineEvaluationTest)
 
