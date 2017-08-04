@@ -83,6 +83,8 @@ namespace Kandinsky
     protected:
         BaseExpressionPtr m_baseExpressionPtr;
     };
+
+    std::ostream& operator<< (std::ostream& stream, const Expression& expression);
 }
 
 #endif
