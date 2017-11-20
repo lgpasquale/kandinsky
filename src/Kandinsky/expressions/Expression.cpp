@@ -16,6 +16,7 @@ namespace Kandinsky
 
     std::ostream& operator<< (std::ostream& stream, const Expression& expression) {
         stream << expression.toString();
+        return stream;
     }
 }
 
