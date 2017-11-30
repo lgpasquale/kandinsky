@@ -9,12 +9,12 @@ namespace Kandinsky
     class Variable
     {
     public:
-        Variable(double value) : m_variableExpressionPtr(new VariableExpression(value)) {}
+        Variable(double value) : m_variableExpressionPtr(std::make_shared<VariableExpression>(value)) {}
 
         Variable() : Variable(0) {}
 
         Variable(const std::string& name, double value = 0) :
-                m_variableExpressionPtr(new VariableExpression(name, value)) {}
+                m_variableExpressionPtr(std::make_shared<VariableExpression>(name, value)) {}
 
         Variable(VariableExpressionPtr variableExpressionPtr) :
                 m_variableExpressionPtr(variableExpressionPtr) {}

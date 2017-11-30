@@ -13,7 +13,7 @@ namespace Kandinsky
     template <class T>
     std::shared_ptr<BaseExpression> makePtr2(const T& arg, std::false_type)
     {
-        return std::shared_ptr<BaseExpression>(new typename ExpressionTraits<T>::ExpressionType(arg));
+        return std::make_shared<typename ExpressionTraits<T>::ExpressionType>(arg);
     }
 
     template <class T>
