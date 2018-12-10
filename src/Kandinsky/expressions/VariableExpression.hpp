@@ -3,7 +3,9 @@
 
 #include <Kandinsky/expressions/BaseExpression.hpp>
 #include <Kandinsky/expressions/Constant.hpp>
+#include <Kandinsky/expressions/defaultFormatter.hpp>
 
+#include <functional>
 #include <string>
 
 namespace Kandinsky
@@ -46,6 +48,11 @@ namespace Kandinsky
             return m_index;
         }
 
+        void setFormatter(const std::function<std::string(double)>& formatter)
+        {
+            m_formatter = formatter;
+        }
+
         double evaluate() const
         {
             return m_value;
@@ -57,7 +64,7 @@ namespace Kandinsky
 
         virtual std::string toString(bool evaluate = false) const
         {
-            return evaluate ? std::to_string(m_value) : m_name;
+            return evaluate ? m_formatter(m_value) : m_name;
         }
 
         bool sameAs(const VariableExpression& variable) const
@@ -90,6 +97,7 @@ namespace Kandinsky
         double m_value;
         std::string m_name;
         unsigned int m_index;
+        std::function<std::string(double)> m_formatter = defaultFormatter;
     };
 
     typedef std::shared_ptr<VariableExpression> VariableExpressionPtr;

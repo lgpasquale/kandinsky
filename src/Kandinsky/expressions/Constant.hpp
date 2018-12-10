@@ -2,7 +2,9 @@
 #define KANDINSKY_CONSTANT_HPP_
 
 #include <Kandinsky/expressions/BaseExpression.hpp>
+#include <Kandinsky/expressions/defaultFormatter.hpp>
 
+#include <functional>
 #include <sstream>
 
 namespace Kandinsky
@@ -11,6 +13,11 @@ namespace Kandinsky
     {
     public:
         Constant(double value) : m_value(value) {}
+
+        void setFormatter(const std::function<std::string(double)>& formatter)
+        {
+            m_formatter = formatter;
+        }
 
         double evaluate() const
         {
@@ -25,9 +32,7 @@ namespace Kandinsky
 
         virtual std::string toString(bool /*evaluate*/ = false) const
         {
-            std::ostringstream valueStream;
-            valueStream << m_value;
-            return valueStream.str();
+            return m_formatter(m_value);
         }
 
         virtual bool isConstant() const
@@ -52,6 +57,7 @@ namespace Kandinsky
 
     private:
         double m_value;
+        std::function<std::string(double)> m_formatter = defaultFormatter;
     };
 
     typedef std::shared_ptr<Constant> ConstantPtr;

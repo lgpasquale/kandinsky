@@ -4,3 +4,6 @@ add_subdirectory(differentiation)
 add_project_test_executable(expression_derivatives_test ExpressionDerivativesTest.cpp
     TEST_NAME ExpressionDerivativesTest)
 
+add_project_test_executable(expression_printing_test ExpressionPrintingTest.cpp
+    TEST_NAME ExpressionPrintingTest)
+

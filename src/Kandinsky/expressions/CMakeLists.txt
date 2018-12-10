@@ -1,4 +1,6 @@
 set(${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS}
+    expressions/defaultFormatter.hpp
+
     expressions/BaseExpression.hpp
     expressions/ExpressionTraits.hpp
     expressions/Constant.hpp
@@ -38,6 +40,8 @@ set(${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS}
     CACHE INTERNAL "")
 
 set(${PROJECT_NAME}_SOURCES ${${PROJECT_NAME}_SOURCES}
+    expressions/defaultFormatter.cpp
+
     expressions/BaseExpression.cpp
     expressions/Constant.cpp
     expressions/VariableExpression.cpp

@@ -3,6 +3,7 @@
 
 #include <Kandinsky/expressions/VariableExpression.hpp>
 #include <Kandinsky/expressions/Expression.hpp>
+#include <Kandinsky/expressions/defaultFormatter.hpp>
 
 namespace Kandinsky
 {
@@ -47,6 +48,11 @@ namespace Kandinsky
         unsigned int getIndex() const
         {
             return m_variableExpressionPtr->getIndex();
+        }
+
+        void setFormatter(const std::function<std::string(double)>& formatter)
+        {
+            m_variableExpressionPtr->setFormatter(formatter);
         }
 
         double evaluate() const
