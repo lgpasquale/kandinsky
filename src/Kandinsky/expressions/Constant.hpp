@@ -23,7 +23,7 @@ namespace Kandinsky
         {
         }
 
-        virtual std::string toString() const
+        virtual std::string toString(bool /*evaluate*/ = false) const
         {
             std::ostringstream valueStream;
             valueStream << m_value;

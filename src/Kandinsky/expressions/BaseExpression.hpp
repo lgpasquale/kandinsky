@@ -29,7 +29,7 @@ namespace Kandinsky
 
         virtual void fillVariableSet(std::set<Variable, VariableLessThanComparator>& variableSet, const std::shared_ptr<BaseExpression>& thisSharedPtr) const = 0;
 
-        virtual std::string toString() const = 0;
+        virtual std::string toString(bool evaluate = false) const = 0;
 
         virtual bool isConstant() const
         {

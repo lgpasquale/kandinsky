@@ -84,9 +84,10 @@ namespace Kandinsky
 
         virtual std::map<Variable, Expression, VariableLessThanComparator> derivatives() const;
 
-        virtual std::string toString() const
+        virtual std::string toString(bool evaluate = false) const
         {
-            return m_baseExpressionPtr->toString();
+            // evaluate == true will print variable values instead of variable names
+            return m_baseExpressionPtr->toString(evaluate);
         }
 
         virtual bool isConstant() const
